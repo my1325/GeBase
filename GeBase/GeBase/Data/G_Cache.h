@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+@interface CacheKey: NSObject
+
+- (instancetype) initWithKeyName: (NSString *)keyName;
+
+@end 
+
 @interface Cache : NSObject
 /**
  用cache的目录初始化Cache, 默认的cacheFile名称
@@ -39,4 +45,29 @@
  @return Cache
  */
 + (instancetype)cache;
+
+/**
+ 下标方法
+
+ @param object object
+ @param aKey aKey
+ */
+- (void)setObject:(id)object forKeyedSubscript:(CacheKey *)aKey;
+- (id)objectForKeyedSubscript:(CacheKey *)key;
+//- (void)setObject:(id)anObject atIndexedSubscript:(NSUInteger)index;
+//- (id)objectAtIndexedSubscript:(NSUInteger)idx;
+
+/**
+ 重写KVC，调用此方法会写入文件，使用下标则不会
+
+ @param value value
+ @param key key
+ */
+- (void)setValue:(id)value forKey:(CacheKey *)key;
+- (id)valueForKey:(CacheKey *)key;
+
+/**
+ 同步方法会写入文件
+ */
+- (void)synchronize;
 @end

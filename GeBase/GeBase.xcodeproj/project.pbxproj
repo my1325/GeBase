@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		0F123C1C200CB20E0071DF9E /* G_Cache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F123C1B200CB20D0071DF9E /* G_Cache.m */; };
 		0F123C1F200CB4B40071DF9E /* G_Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F123C1E200CB4B40071DF9E /* G_Session.m */; };
+		0F13BB82200DB0BD007CB9AE /* G_SessionObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F13BB81200DB0BD007CB9AE /* G_SessionObserver.m */; };
+		0F13BB85200DD84E007CB9AE /* G_BaseHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F13BB84200DD84E007CB9AE /* G_BaseHud.m */; };
+		0F13BB89200DEDD3007CB9AE /* G_BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F13BB88200DEDD3007CB9AE /* G_BaseRequest.m */; };
+		0F13BB8C200DEFBB007CB9AE /* G_BaseCancelToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F13BB8B200DEFBB007CB9AE /* G_BaseCancelToken.m */; };
 		0F34B35C200CA220005FD49F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F34B35B200CA220005FD49F /* AppDelegate.m */; };
 		0F34B35F200CA220005FD49F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F34B35E200CA220005FD49F /* ViewController.m */; };
 		0F34B362200CA220005FD49F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F34B360200CA220005FD49F /* Main.storyboard */; };
@@ -25,6 +29,14 @@
 		0F123C1B200CB20D0071DF9E /* G_Cache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = G_Cache.m; sourceTree = "<group>"; };
 		0F123C1D200CB4B40071DF9E /* G_Session.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = G_Session.h; sourceTree = "<group>"; };
 		0F123C1E200CB4B40071DF9E /* G_Session.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = G_Session.m; sourceTree = "<group>"; };
+		0F13BB80200DB0BD007CB9AE /* G_SessionObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = G_SessionObserver.h; sourceTree = "<group>"; };
+		0F13BB81200DB0BD007CB9AE /* G_SessionObserver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = G_SessionObserver.m; sourceTree = "<group>"; };
+		0F13BB83200DD84E007CB9AE /* G_BaseHud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = G_BaseHud.h; sourceTree = "<group>"; };
+		0F13BB84200DD84E007CB9AE /* G_BaseHud.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = G_BaseHud.m; sourceTree = "<group>"; };
+		0F13BB87200DEDD3007CB9AE /* G_BaseRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = G_BaseRequest.h; sourceTree = "<group>"; };
+		0F13BB88200DEDD3007CB9AE /* G_BaseRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = G_BaseRequest.m; sourceTree = "<group>"; };
+		0F13BB8A200DEFBB007CB9AE /* G_BaseCancelToken.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = G_BaseCancelToken.h; sourceTree = "<group>"; };
+		0F13BB8B200DEFBB007CB9AE /* G_BaseCancelToken.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = G_BaseCancelToken.m; sourceTree = "<group>"; };
 		0F34B357200CA220005FD49F /* GeBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeBase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F34B35A200CA220005FD49F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0F34B35B200CA220005FD49F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -63,8 +75,21 @@
 				0F123C1B200CB20D0071DF9E /* G_Cache.m */,
 				0F123C1D200CB4B40071DF9E /* G_Session.h */,
 				0F123C1E200CB4B40071DF9E /* G_Session.m */,
+				0F13BB80200DB0BD007CB9AE /* G_SessionObserver.h */,
+				0F13BB81200DB0BD007CB9AE /* G_SessionObserver.m */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		0F13BB86200DE905007CB9AE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				0F13BB87200DEDD3007CB9AE /* G_BaseRequest.h */,
+				0F13BB88200DEDD3007CB9AE /* G_BaseRequest.m */,
+				0F13BB8A200DEFBB007CB9AE /* G_BaseCancelToken.h */,
+				0F13BB8B200DEFBB007CB9AE /* G_BaseCancelToken.m */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		0F34B34E200CA220005FD49F = {
@@ -88,6 +113,7 @@
 		0F34B359200CA220005FD49F /* GeBase */ = {
 			isa = PBXGroup;
 			children = (
+				0F13BB86200DE905007CB9AE /* Network */,
 				0F123C19200CB1F50071DF9E /* Data */,
 				0F34B370200CA4A1005FD49F /* UI */,
 				0F34B35A200CA220005FD49F /* AppDelegate.h */,
@@ -110,6 +136,8 @@
 				0F34B372200CA4BE005FD49F /* G_BaseViewController.m */,
 				0F34B374200CA527005FD49F /* G_BaseTableView.h */,
 				0F34B375200CA527005FD49F /* G_BaseTableView.m */,
+				0F13BB83200DD84E007CB9AE /* G_BaseHud.h */,
+				0F13BB84200DD84E007CB9AE /* G_BaseHud.m */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -259,12 +287,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F13BB82200DB0BD007CB9AE /* G_SessionObserver.m in Sources */,
 				0F34B35F200CA220005FD49F /* ViewController.m in Sources */,
+				0F13BB89200DEDD3007CB9AE /* G_BaseRequest.m in Sources */,
 				0F34B373200CA4BE005FD49F /* G_BaseViewController.m in Sources */,
 				0F123C1C200CB20E0071DF9E /* G_Cache.m in Sources */,
 				0F123C1F200CB4B40071DF9E /* G_Session.m in Sources */,
 				0F34B376200CA528005FD49F /* G_BaseTableView.m in Sources */,
 				0F34B36A200CA220005FD49F /* main.m in Sources */,
+				0F13BB8C200DEFBB007CB9AE /* G_BaseCancelToken.m in Sources */,
+				0F13BB85200DD84E007CB9AE /* G_BaseHud.m in Sources */,
 				0F34B35C200CA220005FD49F /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
