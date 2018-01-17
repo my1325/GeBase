@@ -21,6 +21,9 @@
 		0F34B36A200CA220005FD49F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F34B369200CA220005FD49F /* main.m */; };
 		0F34B373200CA4BE005FD49F /* G_BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F34B372200CA4BE005FD49F /* G_BaseViewController.m */; };
 		0F34B376200CA528005FD49F /* G_BaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F34B375200CA527005FD49F /* G_BaseTableView.m */; };
+		0FB485AB200EE55100A6E799 /* G_BaseRequestTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB485AA200EE55100A6E799 /* G_BaseRequestTarget.m */; };
+		0FB485AE200EE61200A6E799 /* G_BaseRequestParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB485AD200EE61200A6E799 /* G_BaseRequestParameter.m */; };
+		0FB485B1200F207900A6E799 /* G_BaseTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB485B0200F207900A6E799 /* G_BaseTarget.m */; };
 		54402BB25CF51F416FF9FC28 /* libPods-GeBase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E42236DA1FCAB632EB7DA5DB /* libPods-GeBase.a */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +54,12 @@
 		0F34B372200CA4BE005FD49F /* G_BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = G_BaseViewController.m; sourceTree = "<group>"; };
 		0F34B374200CA527005FD49F /* G_BaseTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = G_BaseTableView.h; sourceTree = "<group>"; };
 		0F34B375200CA527005FD49F /* G_BaseTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = G_BaseTableView.m; sourceTree = "<group>"; };
+		0FB485A9200EE55100A6E799 /* G_BaseRequestTarget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = G_BaseRequestTarget.h; sourceTree = "<group>"; };
+		0FB485AA200EE55100A6E799 /* G_BaseRequestTarget.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = G_BaseRequestTarget.m; sourceTree = "<group>"; };
+		0FB485AC200EE61200A6E799 /* G_BaseRequestParameter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = G_BaseRequestParameter.h; sourceTree = "<group>"; };
+		0FB485AD200EE61200A6E799 /* G_BaseRequestParameter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = G_BaseRequestParameter.m; sourceTree = "<group>"; };
+		0FB485AF200F207900A6E799 /* G_BaseTarget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = G_BaseTarget.h; sourceTree = "<group>"; };
+		0FB485B0200F207900A6E799 /* G_BaseTarget.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = G_BaseTarget.m; sourceTree = "<group>"; };
 		1525C5305CA81EF1F0B526C1 /* Pods-GeBase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeBase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeBase/Pods-GeBase.debug.xcconfig"; sourceTree = "<group>"; };
 		35BD6864E5F77CBAEC910C87 /* Pods-GeBase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeBase.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeBase/Pods-GeBase.release.xcconfig"; sourceTree = "<group>"; };
 		E42236DA1FCAB632EB7DA5DB /* libPods-GeBase.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GeBase.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +97,12 @@
 				0F13BB88200DEDD3007CB9AE /* G_BaseRequest.m */,
 				0F13BB8A200DEFBB007CB9AE /* G_BaseCancelToken.h */,
 				0F13BB8B200DEFBB007CB9AE /* G_BaseCancelToken.m */,
+				0FB485A9200EE55100A6E799 /* G_BaseRequestTarget.h */,
+				0FB485AA200EE55100A6E799 /* G_BaseRequestTarget.m */,
+				0FB485AC200EE61200A6E799 /* G_BaseRequestParameter.h */,
+				0FB485AD200EE61200A6E799 /* G_BaseRequestParameter.m */,
+				0FB485AF200F207900A6E799 /* G_BaseTarget.h */,
+				0FB485B0200F207900A6E799 /* G_BaseTarget.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -291,11 +306,14 @@
 				0F34B35F200CA220005FD49F /* ViewController.m in Sources */,
 				0F13BB89200DEDD3007CB9AE /* G_BaseRequest.m in Sources */,
 				0F34B373200CA4BE005FD49F /* G_BaseViewController.m in Sources */,
+				0FB485AE200EE61200A6E799 /* G_BaseRequestParameter.m in Sources */,
 				0F123C1C200CB20E0071DF9E /* G_Cache.m in Sources */,
+				0FB485AB200EE55100A6E799 /* G_BaseRequestTarget.m in Sources */,
 				0F123C1F200CB4B40071DF9E /* G_Session.m in Sources */,
 				0F34B376200CA528005FD49F /* G_BaseTableView.m in Sources */,
 				0F34B36A200CA220005FD49F /* main.m in Sources */,
 				0F13BB8C200DEFBB007CB9AE /* G_BaseCancelToken.m in Sources */,
+				0FB485B1200F207900A6E799 /* G_BaseTarget.m in Sources */,
 				0F13BB85200DD84E007CB9AE /* G_BaseHud.m in Sources */,
 				0F34B35C200CA220005FD49F /* AppDelegate.m in Sources */,
 			);

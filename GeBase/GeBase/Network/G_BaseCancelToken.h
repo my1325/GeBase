@@ -16,7 +16,6 @@ typedef void(^BaseRequestError)(NSError * retError);
 @class BaseCancelToken;
 
 @protocol BaseResponseSerializer<NSObject>
-
 @optional
 /**
  序列化服务器返回数据接口
@@ -37,11 +36,6 @@ typedef void(^BaseRequestError)(NSError * retError);
 G_ReadonlyProperty(strong) NSURLSessionTask * task;
 
 /**
-    完成回调
- */
-G_ReadonlyProperty(strong) BaseRequestCompletion completion;
-
-/**
     序列化正确回调
  */
 G_ReadonlyProperty(strong) BaseRequestResponse responseCompletion;
@@ -50,11 +44,6 @@ G_ReadonlyProperty(strong) BaseRequestResponse responseCompletion;
     错误回调
  */
 G_ReadonlyProperty(strong) BaseRequestError errorCompletion;
-
-/**
-    关联对象
- */
-G_ReadonlyProperty(weak) id bindTarget;
 
 /**
     是否被取消
@@ -69,11 +58,10 @@ G_ReadonlyProperty(strong) id<BaseResponseSerializer> responseSerializer;
 /**
  初始化CancelToken
 
- @param target target
- @param completion 完成回调
+ @param serializer 自定义序列化对象
  @return BaseCancelToken
  */
-- (instancetype)initWithTarget: (id)target usingSerializer: (id<BaseResponseSerializer>)serializer completion: (BaseRequestCompletion)completion;
+- (instancetype)initWithSerializer: (id<BaseResponseSerializer>)serializer;
 
 /**
  执行task
@@ -86,6 +74,17 @@ G_ReadonlyProperty(strong) id<BaseResponseSerializer> responseSerializer;
  取消task
  */
 - (void) cancel;
+
+/**
+ 处理收到接口的返回信息
+
+ @param response response
+ @param request request
+ @param responseObject responseObject
+ @param error error
+ @return BaseCancelToken
+ */
+- (BaseCancelToken *) receiveResponse: (NSURLResponse *)response fromRequest: (NSURLRequest *)request withResponseObject: (id)responseObject error: (NSError *)error;
 @end
 
 @interface BaseCancelToken (Response)
@@ -105,4 +104,12 @@ G_ReadonlyProperty(strong) id<BaseResponseSerializer> responseSerializer;
  @return BaseCancelToken
  */
 - (BaseCancelToken *) error: (BaseRequestError)error;
+
+/**
+ 自定义序列化对象
+
+ @param serializer serializer
+ @return BaseCancelToken
+ */
+- (BaseCancelToken *) updateSerializer: (id<BaseResponseSerializer>)serializer;
 @end

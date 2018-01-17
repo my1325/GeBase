@@ -12,13 +12,11 @@
 
 - (instancetype)init { return nil; }
 
-- (instancetype)initWithTarget:(id)target usingSerializer:(id<BaseResponseSerializer>)serializer completion:(BaseRequestCompletion)completion {
+- (instancetype)initWithSerializer:(id<BaseResponseSerializer>)serializer {
     
     self = [super init];
     if (!self) return nil;
     
-    _bindTarget = target;
-    _completion = [completion copy];
     _responseSerializer = serializer;
     return self;
 }
@@ -27,18 +25,9 @@
     
     if (_task && !_isCanceled) [_task cancel];
     
-    if (!_bindTarget) {
-        
-        _isCanceled = YES;
-        _task = task;
-        [_task cancel];
-    }
-    else {
-    
-        _isCanceled = NO;
-        _task = task;
-        [_task resume];
-    }
+    _isCanceled = NO;
+    _task = task;
+    [_task resume];
 }
 
 - (void)cancel {
@@ -46,5 +35,44 @@
     if (_task && !_isCanceled) [_task cancel];
     
     _isCanceled = YES;
+}
+
+- (BaseCancelToken *)receiveResponse:(NSURLResponse *)response fromRequest:(NSURLRequest *)request withResponseObject:(id)responseObject error:(NSError *)error {
+        
+    id retObject = responseObject;
+    NSError * retError = error;
+#if DEBUG
+    NSLog(@"request = %@\nparameters = %@\nheader = %@\nretObject = %@\nretError = %@", request.URL, [[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding], request.allHTTPHeaderFields, retObject, retError);
+#endif
+    if ([_responseSerializer respondsToSelector:@selector(serializeResponseObject:fromCancelToken:error:)] && !retError) {
+        
+        retObject = [_responseSerializer serializeResponseObject:responseObject fromCancelToken:self error:&retError];
+    }
+    
+    if (!retError && _responseCompletion) _responseCompletion(retObject);
+    else if (_errorCompletion) _errorCompletion(retError);
+    
+    return self;
+}
+@end
+
+@implementation BaseCancelToken (Response)
+
+- (BaseCancelToken *)response:(BaseRequestResponse)response {
+    
+    _responseCompletion = [response copy];
+    return self;
+}
+
+- (BaseCancelToken *)error:(BaseRequestError)error {
+    
+    _errorCompletion = [error copy];
+    return self;
+}
+
+- (BaseCancelToken *)updateSerializer:(id<BaseResponseSerializer>)serializer {
+    
+    _responseSerializer = serializer;
+    return self;
 }
 @end
