@@ -34,7 +34,7 @@
     static NSErrorDomain _baseRequestErrorDomin = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _baseRequestErrorDomin = @"com.my.g_base.request.error.timeout";
+        _baseRequestErrorDomin = @"com.GeBase.request.error.timeout";
     });
     
     return _baseRequestErrorDomin;
@@ -75,7 +75,7 @@
     _manager = manager;
     _manager.responseSerializer = _reseponseEncoding;
     _lock = dispatch_semaphore_create(1);
-    _queue = dispatch_queue_create("com.my.g_base.request.queu", DISPATCH_QUEUE_CONCURRENT);
+    _queue = dispatch_queue_create("com.GeBase.request.queue", DISPATCH_QUEUE_CONCURRENT);
     return self;
 }
 
