@@ -8,7 +8,7 @@
 
 #import "G_BaseTarget.h"
 #import "G_BaseRequest.h"
-#import <AFNetworking.h>
+#import <AFNetworking/AFNetworking.h>
 
 @implementation BaseTarget
 

@@ -9,7 +9,7 @@
 #import "G_Session.h"
 #import "G_Cache.h"
 #import "G_SessionObserver.h"
-#import <YYModel.h>
+#import <YYModel/YYModel.h>
 
 @interface CacheKey (Session)
 

@@ -7,7 +7,7 @@
 //
 
 #import "G_BaseHud.h"
-#import <MBProgressHUD.h>
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @implementation BaseHud {
     

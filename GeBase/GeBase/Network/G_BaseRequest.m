@@ -7,7 +7,7 @@
 //
 
 #import "G_BaseRequest.h"
-#import <AFNetworking.h>
+#import <AFNetworking/AFNetworking.h>
 #import "G_BaseCancelToken.h"
 #import "G_BaseRequestTarget.h"
 #import "G_BaseRequestParameter.h"

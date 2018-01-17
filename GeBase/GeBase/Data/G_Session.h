@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <GeKit.h>
+#import <GeKit/GeKit.h>
 #import "G_SessionObserver.h"
 
 @class Cache;

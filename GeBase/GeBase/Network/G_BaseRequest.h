@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <GeKit.h>
+#import <GeKit/GeKit.h>
 
 @protocol BaseRequestTarget, BaseResponseSerializer;
 @class BaseCancelToken, AFURLSessionManager, AFHTTPResponseSerializer;

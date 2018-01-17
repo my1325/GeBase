@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <GeKit.h>
+#import <GeKit/GeKit.h>
 
 @interface BaseHud : NSObject
 /**

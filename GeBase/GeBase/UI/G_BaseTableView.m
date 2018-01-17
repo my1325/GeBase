@@ -7,7 +7,7 @@
 //
 
 #import "G_BaseTableView.h"
-#import <MJRefresh.h>
+#import <MJRefresh/MJRefresh.h>
 
 @implementation G_BaseTableView
 

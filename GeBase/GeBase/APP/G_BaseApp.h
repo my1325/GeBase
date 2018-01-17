@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <GeKit.h>
+#import <GeKit/GeKit.h>
 #import "G_BaseRequest.h"
 #import "G_BaseTarget.h"
 #import "G_BaseRequestParameter.h"

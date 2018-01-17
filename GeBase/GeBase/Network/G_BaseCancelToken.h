@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <GeKit.h>
+#import <GeKit/GeKit.h>
 
 typedef void(^BaseRequestCompletion)(NSURLRequest * request, NSURLResponse * response, NSError * error);
 typedef void(^BaseRequestResponse)(id retObject);

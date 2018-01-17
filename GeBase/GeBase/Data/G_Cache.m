@@ -7,7 +7,7 @@
 //
 
 #import "G_Cache.h"
-#import <GeKit.h>
+#import <GeKit/GeKit.h>
 
 @implementation CacheKey {
     
