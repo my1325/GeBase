@@ -13,27 +13,27 @@
 /**
 富文本的attribute
  */
-G_StrongProperty NSDictionary<NSAttributedStringKey, id> * titleAttribute;
+@property(nonatomic, strong) NSDictionary<NSAttributedStringKey, id> * titleAttribute;
 
 /**
  转子的颜色
  */
-G_StrongProperty UIColor * indicatorColor;
+@property(nonatomic, strong) UIColor * indicatorColor;
 
 /**
     中间view的背景颜色
  */
-G_StrongProperty UIColor * backColor;
+@property(nonatomic, strong) UIColor * backColor;
 
 /**
  成功的图片
  */
-G_StrongProperty UIImage * successImage;
+@property(nonatomic, strong) UIImage * successImage;
 
 /**
     失败的图片
  */
-G_StrongProperty UIImage * failImage;
+@property(nonatomic, strong) UIImage * failImage;
 
 /**
  默认初始化

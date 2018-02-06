@@ -15,17 +15,17 @@
 /**
  用户Id
  */
-G_ReadonlyProperty(strong) NSString * userId;
+@property(nonatomic, strong, readonly) NSString * userId;
 
 /**
 登录token
  */
-G_ReadonlyProperty(strong) NSString * token;
+@property(nonatomic, strong, readonly) NSString * token;
 
 /**
  用户信息
  */
-G_ReadonlyProperty(strong) id userInfo;
+@property(nonatomic, strong, readonly) id userInfo;
 
 /**
  使用cache初始化

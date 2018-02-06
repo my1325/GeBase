@@ -16,17 +16,17 @@ typedef void(^SessionObserverAction)(id);
 /**
  唯一标示
  */
-G_ReadonlyProperty(strong) NSString * identifier;
+@property(nonatomic, strong, readonly) NSString * identifier;
 
 /**
  回调
  */
-G_StrongProperty SessionObserverAction action;
+@property(nonatomic, strong) SessionObserverAction action;
 
 /**
  关联对象
  */
-G_WeakProperty id target;
+@property(nonatomic, weak) id target;
 
 /**
  初始化

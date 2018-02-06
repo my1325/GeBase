@@ -13,67 +13,67 @@
 /**
     label
  */
-G_StrongProperty NSString * label;
+@property(nonatomic, strong) NSString * label;
 
 /**
     value
  */
-G_StrongProperty id value;
+@property(nonatomic, strong) id value;
 @end
 
 @interface BaseQueryParameter : NSObject<BaseRequestParameter>
 /**
  label
  */
-G_StrongProperty NSString * label;
+@property(nonatomic, strong) NSString * label;
 
 /**
  value
  */
-G_StrongProperty id value;
+@property(nonatomic, strong) id value;
 @end
 
 @interface BasePathParameter: NSObject<BaseRequestParameter>
 /**
  label
  */
-G_StrongProperty NSString * label;
+@property(nonatomic, strong) NSString * label;
 
 /**
  value
  */
-G_StrongProperty id value;
+@property(nonatomic, strong) id value;
 @end
 
 @interface BaseBodyParameter: NSObject<BaseRequestParameter>
 /**
  label
  */
-G_StrongProperty NSString * label;
+@property(nonatomic, strong) NSString * label;
 
 /**
  value
  */
-G_StrongProperty id value;
+@property(nonatomic, strong) id value;
 @end
 
 @interface BaseMultipartParameter: NSObject<BaseRequestParameter>
 /**
  label
  */
-G_StrongProperty NSString * label;
+@property(nonatomic, strong) NSString * label;
 
 /**
  value
  */
-G_StrongProperty id value;
+@property(nonatomic, strong) id value;
 
 /**
     fileName
  */
-G_StrongProperty NSString * fileName;
+@property(nonatomic, strong) NSString * fileName;
 /**
     IMAGE/JPG
  */
-G_StrongProperty NSString * type;
+@property(nonatomic, strong) NSString * type;
 @end

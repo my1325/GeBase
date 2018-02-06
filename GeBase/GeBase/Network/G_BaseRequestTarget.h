@@ -21,32 +21,32 @@ typedef AFHTTPRequestSerializer BaseRequestEncoding;
 /**
     GET
  */
-G_ClassReadonlyProperty BaseRequestMethod * get;
+@property(nonatomic, strong, readonly, class) BaseRequestMethod * get;
 /**
     POST
  */
-G_ClassReadonlyProperty BaseRequestMethod * post;
+@property(nonatomic, strong, readonly, class) BaseRequestMethod * post;
 /**
     PUT
  */
-G_ClassReadonlyProperty BaseRequestMethod * put;
+@property(nonatomic, strong, readonly, class) BaseRequestMethod * put;
 /**
     DELETE
  */
-G_ClassReadonlyProperty BaseRequestMethod * delete;
+@property(nonatomic, strong, readonly, class) BaseRequestMethod * delete;
 /**
     HEAD
  */
-G_ClassReadonlyProperty BaseRequestMethod * head;
+@property(nonatomic, strong, readonly, class) BaseRequestMethod * head;
 /**
     PATCH
  */
-G_ClassReadonlyProperty BaseRequestMethod * patch;
+@property(nonatomic, strong, readonly, class) BaseRequestMethod * patch;
 
 /**
  字符串形式
  */
-G_ReadonlyProperty(strong) NSString * stringValue;
+@property(nonatomic, strong, readonly) NSString * stringValue;
 @end
 
 
@@ -57,28 +57,28 @@ G_ReadonlyProperty(strong) NSString * stringValue;
 /**
     URL
  */
-G_StrongProperty NSURL * URL;
+@property(nonatomic, strong) NSURL * URL;
 /**
     请求参数
  */
-G_StrongProperty NSArray<id<BaseRequestParameter>> * parameters;
+@property(nonatomic, strong) NSArray<id<BaseRequestParameter>> * parameters;
 /**
     request封装方法
  */
-G_StrongProperty BaseRequestEncoding * encoding;
+@property(nonatomic, strong) BaseRequestEncoding * encoding;
 /**
     request Header
  */
-G_StrongProperty NSDictionary<NSString *, NSString *> * headers;
+@property(nonatomic, strong) NSDictionary<NSString *, NSString *> * headers;
 
 /**
     请求超时时间
  */
-G_AssignProperty NSTimeInterval timeoutInterval;
+@property(nonatomic, assign) NSTimeInterval timeoutInterval;
 
 /**
     请求方式
  */
-G_StrongProperty BaseRequestMethod * method;
+@property(nonatomic, strong) BaseRequestMethod * method;
 @end
 

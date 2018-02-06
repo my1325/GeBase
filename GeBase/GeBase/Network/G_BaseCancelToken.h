@@ -33,27 +33,27 @@ typedef void(^BaseRequestError)(NSError * retError);
 /**
     task
  */
-G_ReadonlyProperty(strong) NSURLSessionTask * task;
+@property(nonatomic, strong, readonly) NSURLSessionTask * task;
 
 /**
     序列化正确回调
  */
-G_ReadonlyProperty(strong) BaseRequestResponse responseCompletion;
+@property(nonatomic, strong, readonly) BaseRequestResponse responseCompletion;
 
 /**
     错误回调
  */
-G_ReadonlyProperty(strong) BaseRequestError errorCompletion;
+@property(nonatomic, strong, readonly) BaseRequestError errorCompletion;
 
 /**
     是否被取消
  */
-G_ReadonlyProperty(assign) BOOL isCanceled;
+@property(nonatomic, assign, readonly) BOOL isCanceled;
 
 /**
     自定义格式化数据
  */
-G_ReadonlyProperty(strong) id<BaseResponseSerializer> responseSerializer;
+@property(nonatomic, strong, readonly) id<BaseResponseSerializer> responseSerializer;
 
 /**
  初始化CancelToken

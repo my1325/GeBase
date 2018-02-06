@@ -18,38 +18,38 @@ typedef AFHTTPResponseSerializer BaseResponseEncoding ;
 /**
     自定义请求错误码
  */
-G_ClassReadonlyProperty NSInteger baseRequestErrorCode;
+@property(nonatomic, readonly, class) NSInteger baseRequestErrorCode;
 
 /**
     自定义请求超时错误码
  */
-G_ClassReadonlyProperty NSInteger baseRequestErrorTimeoutCode;
+@property(nonatomic, readonly, class) NSInteger baseRequestErrorTimeoutCode;
 @end
 
 @interface NSString (BaseRequest)
 /**
  自定义errroDomin
  */
-G_ClassReadonlyProperty NSErrorDomain baseRequestErrorDomin;
+@property(nonatomic, strong, readonly, class) NSErrorDomain baseRequestErrorDomin;
 @end
 
 @interface NSError (BaseRequest)
 /**
     请求超时错误
  */
-G_ClassReadonlyProperty NSError * timeout;
+@property(nonatomic, strong, readonly, class) NSError * timeout;
 @end
 
 @interface BaseRequest : NSObject
 /**
     处理服务器返回的数据
  */
-G_StrongProperty BaseResponseEncoding * reseponseEncoding;
+@property(nonatomic, strong) BaseResponseEncoding * reseponseEncoding;
 
 /**
     处理服务其返回的字段
  */
-G_StrongProperty id<BaseResponseSerializer> responseSerizlizer;
+@property(nonatomic, strong) id<BaseResponseSerializer> responseSerizlizer;
 
 /**
  默认初始化
