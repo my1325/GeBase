@@ -19,14 +19,14 @@
 
 @interface BaseApp : NSObject
 
-G_ClassReadonlyProperty BaseApp * sharedApp;
+@property (nonatomic, readonly, class) BaseApp * sharedApp;
 
-G_ReadonlyProperty(strong) BaseRequest * request;
+@property (nonatomic, readonly, strong) BaseRequest * request;
 
-G_ReadonlyProperty(strong) Session * session;
+@property (nonatomic, readonly, strong) Session * session;
 
-G_ReadonlyProperty(strong) BaseHud * hud;
+@property (nonatomic, readonly, strong) BaseHud * hud;
 
-G_ReadonlyProperty(strong) UIViewController * currentViewController;
+@property (nonatomic, readonly, strong) UIViewController * currentViewController;
 
 @end

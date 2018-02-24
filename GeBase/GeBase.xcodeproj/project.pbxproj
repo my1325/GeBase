@@ -26,6 +26,7 @@
 		0FB485B1200F207900A6E799 /* G_BaseTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB485B0200F207900A6E799 /* G_BaseTarget.m */; };
 		0FB485B5200F344E00A6E799 /* G_BaseApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB485B4200F344E00A6E799 /* G_BaseApp.m */; };
 		54402BB25CF51F416FF9FC28 /* libPods-GeBase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E42236DA1FCAB632EB7DA5DB /* libPods-GeBase.a */; };
+		DACBF09ECD14631310C41ECA /* G_ORM.m in Sources */ = {isa = PBXBuildFile; fileRef = DACADB0D8B0234E365D4E09C /* G_ORM.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,8 @@
 		0FB485B4200F344E00A6E799 /* G_BaseApp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = G_BaseApp.m; sourceTree = "<group>"; };
 		1525C5305CA81EF1F0B526C1 /* Pods-GeBase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeBase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeBase/Pods-GeBase.debug.xcconfig"; sourceTree = "<group>"; };
 		35BD6864E5F77CBAEC910C87 /* Pods-GeBase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeBase.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeBase/Pods-GeBase.release.xcconfig"; sourceTree = "<group>"; };
+		DAC5D5CA59FBD80341265849 /* G_ORM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = G_ORM.h; sourceTree = "<group>"; };
+		DACADB0D8B0234E365D4E09C /* G_ORM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = G_ORM.m; sourceTree = "<group>"; };
 		E42236DA1FCAB632EB7DA5DB /* libPods-GeBase.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GeBase.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -131,6 +134,7 @@
 		0F34B359200CA220005FD49F /* GeBase */ = {
 			isa = PBXGroup;
 			children = (
+				0FECA056203EBC7000A9C17C /* Database */,
 				0FB485B2200F343E00A6E799 /* APP */,
 				0F13BB86200DE905007CB9AE /* Network */,
 				0F123C19200CB1F50071DF9E /* Data */,
@@ -168,6 +172,15 @@
 				0FB485B4200F344E00A6E799 /* G_BaseApp.m */,
 			);
 			path = APP;
+			sourceTree = "<group>";
+		};
+		0FECA056203EBC7000A9C17C /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				DACADB0D8B0234E365D4E09C /* G_ORM.m */,
+				DAC5D5CA59FBD80341265849 /* G_ORM.h */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 		3D7F06DBAE5E72C78B8DD256 /* Pods */ = {
@@ -330,6 +343,7 @@
 				0FB485B1200F207900A6E799 /* G_BaseTarget.m in Sources */,
 				0F13BB85200DD84E007CB9AE /* G_BaseHud.m in Sources */,
 				0F34B35C200CA220005FD49F /* AppDelegate.m in Sources */,
+				DACBF09ECD14631310C41ECA /* G_ORM.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

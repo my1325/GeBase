@@ -1,15 +1,17 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '9.0'
-#source 'https://gitclub.cn/CocoaPods/Specs.git'
+# source 'https://gitclub.cn/CocoaPods/Specs.git'
 inhibit_all_warnings!
 
 target 'GeBase' do
 
-pod 'AFNetworking'
-pod 'MJRefresh'
-pod 'DZNEmptyDataSet'
-pod 'YYModel'
-pod 'MBProgressHUD'
-pod 'ReactiveObjC'
-pod 'GeKit'
+ pod 'AFNetworking'
+ pod 'MJRefresh'
+ pod 'DZNEmptyDataSet'
+ pod 'YYModel'
+ pod 'MBProgressHUD'
+ pod 'ReactiveObjC'
+ pod 'GeKit'
+ pod 'YYModel'
+ pod 'FMDB'
 end

@@ -89,7 +89,7 @@ static NSString * const kCacheFileName = @"G_Cache";
     
     _filePath = cachePath;
     _cache = [[NSCache alloc] init];
-    _cacheKeys = @[].mutableCopy;
+    _cacheKeys = [[NSMutableSet alloc] init];
 
     NSDictionary * caches = [NSDictionary dictionaryWithContentsOfFile:cachePath];
     

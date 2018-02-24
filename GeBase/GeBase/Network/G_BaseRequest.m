@@ -139,11 +139,14 @@
     NSURLRequest * request = nil;
     if (mutilpartParameters.count > 0) {
         
-        request = [target.encoding multipartFormRequestWithMethod:target.method.stringValue URLString:entirURL parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-            
-            for (BaseMultipartParameter * parameter in mutilpartParameters)
-                [formData appendPartWithFileData:parameter.value name: parameter.label fileName:parameter.fileName mimeType:parameter.type];
-        } error:nil];
+        request = [target.encoding multipartFormRequestWithMethod:target.method.stringValue
+                                                        URLString:entirURL
+                                                       parameters:nil
+                                        constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData)
+                                        {
+                                            for (BaseMultipartParameter * parameter in mutilpartParameters)
+                                                [formData appendPartWithFileData:parameter.value name: parameter.label fileName:parameter.fileName mimeType:parameter.type];
+                                        } error:nil];
     }
     else {
         
@@ -164,18 +167,21 @@
     dispatch_block_t block = ^{
         
         dispatch_semaphore_t timeout = dispatch_semaphore_create(0);
-        
-        NSURLSessionTask * task = [_manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error)
-        {
-            if (!wtoken || wtoken.isCanceled) return ;
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                [wtoken receiveResponse:response fromRequest:request withResponseObject:responseObject error:error];
-            });
-            
-            dispatch_semaphore_signal(timeout);
-        }];
+
+        NSURLSessionTask * task = [_manager dataTaskWithRequest:request
+                                                 uploadProgress:nil
+                                               downloadProgress:nil
+                                              completionHandler:^(NSURLResponse *response, id responseObject, NSError *error)
+                                              {
+                                                 if (!wtoken || wtoken.isCanceled) return;
+
+                                                  dispatch_async(dispatch_get_main_queue(), ^{
+                                                        [wtoken receiveResponse:response
+                                                                 fromRequest:request
+                                                              withResponseObject:responseObject
+                                                                        error:error];
+                                                  });
+                                              }];
         
         [wtoken resumeTask:task];
         
@@ -206,7 +212,7 @@
     
     return [[[parameters g_filter:^BOOL(BaseQueryParameter * param) {
         
-        return param.value;
+        return param.value != nil;
     }] g_map:^NSString *(BaseQueryParameter * param) {
         
         return [NSString stringWithFormat:@"%@=%@", param.label, param.value];

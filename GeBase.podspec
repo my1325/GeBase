@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'GeBase'
   s.version  = '0.0.0.1'
   s.license  = 'MIT'
-  s.summary  = 'A Useful Tools For iOS'
+  s.summary  = 'Some Useful Tools For iOS'
   s.homepage = 'https://github.com/my1325/GeBase'
   s.authors  = { 'My1325' => '1173962595@qq.com' }
   s.source   = { :git => 'https://github.com/my1325/GeBase.git', :tag => s.version, :submodules => true }

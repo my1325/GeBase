@@ -13,11 +13,11 @@
 
 @interface CacheKey (Session)
 
-G_ClassReadonlyProperty CacheKey * UserID;
+@property (nonatomic, readonly, class) CacheKey * UserID;
 
-G_ClassReadonlyProperty CacheKey * UserInfo;
+@property (nonatomic, readonly, class) CacheKey * UserInfo;
 
-G_ClassReadonlyProperty CacheKey * Token;
+@property (nonatomic, readonly, class) CacheKey * Token;
 @end
 
 @implementation CacheKey (Session)
