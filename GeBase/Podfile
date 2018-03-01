@@ -6,12 +6,8 @@ inhibit_all_warnings!
 target 'GeBase' do
 
  pod 'AFNetworking'
- pod 'MJRefresh'
- pod 'DZNEmptyDataSet'
  pod 'YYModel'
  pod 'MBProgressHUD'
- pod 'ReactiveObjC'
  pod 'GeKit'
- pod 'YYModel'
  pod 'FMDB'
 end

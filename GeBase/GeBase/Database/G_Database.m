@@ -4,8 +4,8 @@
 //
 
 #import "G_Database.h"
-#import <FMDB.h>
-#import <GeKit.h>
+#import <FMDB/FMDB.h>
+#import <GeKit/GeKit.h>
 
 static NSString * checkDefaultDatabaseLibrary(){
 
@@ -105,6 +105,19 @@ static BOOL checkFileAtPath(NSString * path) {
     [_databaseQueue close];
     _databaseQueue = nil;
     _isOpened = NO;
+}
+
+static BaseDatabase * _database;
++ (BaseDatabase *)database {
+    return _database;
+}
+
++ (void)useDatabase:(BaseDatabase *)database {
+    _database = database;
+}
+
+- (void)dealloc {
+    [self close];
 }
 @end
 

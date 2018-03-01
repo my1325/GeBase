@@ -22,6 +22,8 @@
 /*是否打开*/
 @property (nonatomic, readonly, assign) BOOL isOpened;
 
+@property (nonatomic, readonly, class) BaseDatabase * database;
+
 /*初始化方法,文件不存在，目录存在*/
 + (instancetype) databaseWithPath: (NSString *)path;
 
@@ -39,6 +41,8 @@
 
 /*关闭数据库*/
 - (void) close;
+
++ (void) useDatabase: (BaseDatabase *)database;
 @end
 
 @interface BaseDatabase (Execute)

@@ -9,8 +9,6 @@
 
 @interface BaseJsonORM : NSObject
 
-@property (nonatomic, class) BaseDatabase * useDatabase;
-
 /*表名*/
 @property (nonatomic, readonly, class) NSString * tableName;
 
@@ -22,6 +20,7 @@
 
 /*最新一次修改时间*/
 @property (nonatomic, readonly, assign) NSTimeInterval updateTime;
+
 @end
 
 @interface BaseJsonORM (DatabaseSync)
@@ -33,7 +32,7 @@
 @property (nonatomic, readonly, class) NSDictionary * all;
 
 /*删除表*/
-+ (void)destroy;
++ (BOOL)destroy;
 
 /*查询满足主键条件的所有object*/
 + (NSDictionary *) objectsWithPrimaryValues: (NSArray *)values;
@@ -51,11 +50,11 @@
 + (instancetype) first;
 
 /*数据库迁移*/
-+ (void) migrate;
++ (BOOL) migrate;
 
 /*保存到数据库*/
-- (void) save;
+- (BOOL) save;
 
 /*从数据库删除*/
-- (void) delete;
+- (BOOL) delete;
 @end
