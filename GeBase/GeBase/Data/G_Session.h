@@ -28,6 +28,21 @@
 @property(nonatomic, strong, readonly) id userInfo;
 
 /**
+ cache
+ */
+@property(nonatomic, strong, readonly) Cache * cache;
+
+/**
+ 锁定代码块
+ */
+- (void)lock;
+
+/**
+ 解锁代码块
+ */
+- (void)unlock;
+
+/**
  使用cache初始化
 
  @param cache Cache

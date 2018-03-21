@@ -80,6 +80,18 @@
     dispatch_semaphore_t _lock;
 }
 
+- (Cache *)cache {
+    return _cache;
+}
+
+- (void)lock {
+    dispatch_semaphore_wait(_lock, DISPATCH_TIME_FOREVER);
+}
+
+- (void)unlock {
+    dispatch_semaphore_signal(_lock);
+}
+
 + (instancetype)session {
     
     return [[self alloc] init];
