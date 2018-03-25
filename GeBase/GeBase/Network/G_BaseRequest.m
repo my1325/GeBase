@@ -173,6 +173,7 @@
                                                downloadProgress:nil
                                               completionHandler:^(NSURLResponse *response, id responseObject, NSError *error)
                                               {
+                                                  dispatch_semaphore_signal(timeout);
                                                  if (!wtoken || wtoken.isCanceled) return;
 
                                                   dispatch_async(dispatch_get_main_queue(), ^{
