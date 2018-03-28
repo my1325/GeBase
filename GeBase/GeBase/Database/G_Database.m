@@ -69,7 +69,7 @@ static BOOL checkFileAtPath(NSString * path) {
 
     NSString * defaultPath = checkDefaultDatabaseLibrary();
     if (defaultPath.length > 0) {
-        defaultPath = [NSString stringWithFormat:@"%@/name", defaultPath];
+        defaultPath = [NSString stringWithFormat:@"%@/%@", defaultPath, name];
     }
 
     return [self initWithPath:defaultPath];
