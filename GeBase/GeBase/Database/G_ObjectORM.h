@@ -25,6 +25,14 @@
 /*查询所有*/
 + (NSArray *) g_all;
 
+/**
+ 以某个字段为表示查询数据库
+
+ @param uniqueKey 字段名
+ @return NSArray
+ */
++ (NSArray *) g_queryObjectsForKey: (NSString *)uniqueKey withKeyValue: (id)keyValue;
+
 /*表迁移*/
 + (BOOL) g_migrate;
 

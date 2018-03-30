@@ -34,10 +34,8 @@
 static NSString * const kCacheFileName = @"G_Cache";
 @implementation Cache  {
     
-    NSCache * _cache;
+    NSMutableDictionary * _cache;
     NSString * _filePath;
-    NSInteger _cacheCount;
-    NSMutableSet<CacheKey *> * _cacheKeys;
 }
 
 + (instancetype)cache {
@@ -88,89 +86,39 @@ static NSString * const kCacheFileName = @"G_Cache";
     if (!self) return nil;
     
     _filePath = cachePath;
-    _cache = [[NSCache alloc] init];
-    _cacheKeys = [[NSMutableSet alloc] init];
-
-    NSDictionary * caches = [NSDictionary dictionaryWithContentsOfFile:cachePath];
     
-    for (NSString * key in caches.allKeys) {
-     
-        [_cacheKeys addObject: [[CacheKey alloc] initWithKeyName:key]];
-        [_cache setObject:caches[key] forKey:key];
+    _cache = [NSDictionary dictionaryWithContentsOfFile:cachePath].mutableCopy;
+    
+    if (!_cache) {
+        _cache = @{}.mutableCopy;
     }
-    
-    _cacheCount = _cacheKeys.count;
-    
     return self;
 }
 
 - (void)setObject:(id)object forKeyedSubscript:(CacheKey *)aKey {
     
-    if ([_cacheKeys containsObject:object] && !object) {
-        
-        _cacheCount -- ;
-        [_cacheKeys removeObject:aKey];
-        [_cache removeObjectForKey:[aKey stringValue]];
-    }
-    else if (![_cacheKeys containsObject:aKey]) {
-        
-        _cacheCount ++;
-        [_cacheKeys addObject:aKey];
-        [_cache setObject:object forKey:[aKey stringValue]];
-    }
-    else {
-        
-        [_cache setObject:object forKey:[aKey stringValue]];
-    }
+    [_cache setValue:object forKey:[aKey stringValue]];
 }
 
 - (id)objectForKeyedSubscript:(CacheKey *)key {
     
-    return [_cache objectForKey:[key stringValue]];
+    return [_cache valueForKey:[key stringValue]];
 }
 
 - (void)setValue:(id)value forKey:(CacheKey *)key {
-    
-    if ([_cacheKeys containsObject:key] && !value) {
-        
-        _cacheCount -- ;
-        [_cacheKeys removeObject:key];
-        [_cache removeObjectForKey:[key stringValue]];
-    }
-    else if (![_cacheKeys containsObject:key]) {
-        
-        _cacheCount ++;
-        [_cacheKeys addObject:key];
-        [_cache setObject:value forKey:[key stringValue]];
-    }
-    else {
-        
-        [_cache setObject:value forKey:[key stringValue]];
-    }
 
-    [[self dictionaryWithCache] writeToFile:_filePath atomically:YES];
+    [_cache setValue:value forKey:[key stringValue]];
+    [_cache writeToFile:_filePath atomically:YES];
 }
 
 - (id)valueForKey:(CacheKey *)key {
     
-    return [_cache objectForKey:[key stringValue]];
+    return [_cache valueForKey:[key stringValue]];
 }
 
 - (void)synchronize {
     
-    [[self dictionaryWithCache] writeToFile:_filePath atomically:YES];
+    [_cache writeToFile:_filePath atomically:YES];
 }
 
-- (NSDictionary *)dictionaryWithCache {
-    
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    
-    for (CacheKey * cacheKey in _cacheKeys) {
-        
-        id value = [_cache objectForKey:[cacheKey stringValue]];
-        [dict setValue:value forKey:[cacheKey stringValue]];
-    }
-    
-    return [dict copy];
-}
 @end

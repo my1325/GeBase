@@ -156,6 +156,30 @@ static void (*g_objc_void_msg_send)(id self, SEL _cmd, ...) = (void *)objc_msgSe
     return results.copy;
 }
 
++ (NSArray *)g_queryObjectsForKey:(NSString *)uniqueKey withKeyValue:(id)keyValue {
+    
+    BaseDatabase * _database = [BaseDatabase database];
+    
+    NSAssert(_database != nil, @"must set useDatabase");
+    
+    NSString * select_table_sql = [NSString stringWithFormat:@"select * from %@ where %@ = ?", NSStringFromClass(self.class), uniqueKey];
+    
+    NSMutableArray * results = @[].mutableCopy;
+    
+    [_database inDatabase:^(FMDatabase *db) {
+        FMResultSet * set = [db executeQuery:select_table_sql, keyValue];
+        while ([set next]) {
+            
+            id object = [[self alloc] init];
+            [object p_g_setWithResultSet:set];
+            [results addObject:object];
+        }
+        [set close];
+    }];
+    
+    return results.copy;
+}
+
 - (BOOL)g_updateForUniqueKey:(NSString *)uniqueKey {
     
     BaseDatabase * _database = [BaseDatabase database];
