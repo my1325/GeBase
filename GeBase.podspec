@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'GeBase'
-  s.version  = '0.0.1.2'
+  s.version  = '0.0.1.4'
   s.license  = 'MIT'
   s.summary  = 'Some Useful Tools For iOS'
   s.homepage = 'https://github.com/my1325/GeBase'

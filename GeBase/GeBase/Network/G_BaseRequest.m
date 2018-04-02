@@ -136,7 +136,7 @@
 
 - (BaseCancelToken *) p_handleEntirURL: (NSString *)entirURL bodyParameters: (NSArray<BaseBodyParameter *> *)bodyParameters multipartParameters: (NSArray<BaseMultipartParameter *> *)mutilpartParameters fromTarget: (id<BaseRequestTarget>)target {
     
-    NSURLRequest * request = nil;
+    NSMutableURLRequest * request = nil;
     if (mutilpartParameters.count > 0) {
         
         request = [target.encoding multipartFormRequestWithMethod:target.method.stringValue
@@ -151,6 +151,12 @@
     else {
         
         request = [target.encoding requestWithMethod:target.method.stringValue URLString:entirURL parameters:[self p_handleBodyParameters:bodyParameters] error:nil];
+    }
+    
+    for (NSString * key in target.headers) {
+        if (![request.allHTTPHeaderFields valueForKey:key]) {
+            [request setValue:target.headers[key] forHTTPHeaderField:key];
+        }
     }
     
     return [self p_handleRequest:request fromTarget:target];
