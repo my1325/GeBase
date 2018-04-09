@@ -159,10 +159,10 @@
         }
     }
     
-    return [self p_handleRequest:request fromTarget:target];
+    return [self p_handleRequest:request fromTarget:target isUpload:mutilpartParameters.count > 0];
 }
 
-- (BaseCancelToken *) p_handleRequest: (NSURLRequest *)request fromTarget: (id<BaseRequestTarget>) target {
+- (BaseCancelToken *) p_handleRequest: (NSURLRequest *)request fromTarget: (id<BaseRequestTarget>) target isUpload: (BOOL)isUpload{
     
     if (!request) return nil;
     
@@ -174,7 +174,25 @@
         
         dispatch_semaphore_t timeout = dispatch_semaphore_create(0);
 
-        NSURLSessionTask * task = [_manager dataTaskWithRequest:request
+        NSURLSessionTask * task = nil;
+        if (isUpload) {
+            task = [_manager uploadTaskWithStreamedRequest:request
+                                                                     progress:nil
+                                                            completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error)
+            {
+                dispatch_semaphore_signal(timeout);
+                if (!wtoken || wtoken.isCanceled) return;
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [wtoken receiveResponse:response
+                                fromRequest:request
+                         withResponseObject:responseObject
+                                      error:error];
+                });
+            }];
+        }
+        else {
+            task = [_manager dataTaskWithRequest:request
                                                  uploadProgress:nil
                                                downloadProgress:nil
                                               completionHandler:^(NSURLResponse *response, id responseObject, NSError *error)
@@ -189,6 +207,7 @@
                                                                         error:error];
                                                   });
                                               }];
+        }
         
         [wtoken resumeTask:task];
         

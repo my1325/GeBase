@@ -15,8 +15,6 @@
 
 @property (nonatomic, readonly, class) CacheKey * UserID;
 
-@property (nonatomic, readonly, class) CacheKey * UserInfo;
-
 @property (nonatomic, readonly, class) CacheKey * Token;
 @end
 
@@ -32,18 +30,6 @@
     });
     
     return UserIDKey;
-}
-
-+ (CacheKey *)UserInfo {
-    
-    static CacheKey * UserInfoKey = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        
-        UserInfoKey = [[CacheKey alloc] initWithKeyName:@"com.GeBase.CacheKey.UserInfo"];
-    });
-    
-    return UserInfoKey;
 }
 
 + (CacheKey *)Token {
@@ -114,7 +100,6 @@
     _cache = cache;
     
     _userId = _cache[CacheKey.UserID];
-    _userInfo = _cache[CacheKey.UserInfo];
     _token = _cache[CacheKey.Token];
     return self;
 }
@@ -158,6 +143,7 @@
     
     self.userId = nil;
     self.token = nil;
+    self.userInfo = nil;
     
     for (SessionObserver * observer in _userIdObserver) {
         
@@ -176,9 +162,7 @@
     
     dispatch_semaphore_wait(_lock, DISPATCH_TIME_FOREVER);
     
-    _cache[CacheKey.UserInfo] = [userInfo yy_modelToJSONObject];
-    
-    [_cache synchronize];
+    _userInfo = userInfo;
     
     for (SessionObserver * observer in _userInfoObserver) {
         
